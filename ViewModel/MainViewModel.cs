@@ -10,20 +10,5 @@ public partial class MainViewModel : ObservableObject
     {
         
     }
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(FullName))]
-    string firstName;
-
-    [ObservableProperty]
-    string lastName;
-
-    public string FullName => $"{firstName} {lastName}";
-
-    [RelayCommand]
-    static void Submit() 
-    {
-        Debug.WriteLine("DEBUG INFO: Submitted");
-    }
-
 
 }

@@ -1,4 +1,6 @@
-﻿using SolarTracker.ViewModel;
+﻿using SolarTracker.Services;
+using SolarTracker.View;
+using SolarTracker.ViewModel;
 namespace SolarTracker;
 
 public static class MauiProgram
@@ -14,11 +16,16 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		// Views
-		//builder.Services.AddSingleton<LoginPage>();
+		// Services
+		builder.Services.AddSingleton<UserService>();
 
-        // View Models
-        //builder.Services.AddSingleton<LoginPageViewModel>();
+		// View Models
+		builder.Services.AddSingleton<UserViewModel>();
+
+
+		// Pages
+		builder.Services.AddSingleton<MainPage>();
+
         return builder.Build();
 	}
 }

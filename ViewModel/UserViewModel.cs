@@ -3,6 +3,7 @@ using SolarTracker.Services;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
+using SolarTracker.View;
 
 namespace SolarTracker.ViewModel;
 
@@ -19,8 +20,20 @@ public partial class UserViewModel : BaseViewModel
         this.userService = userService;
         
     }
+    [RelayCommand]
+    async Task GoToLoginPageCommand(User user)
+    {
+        Debug.WriteLine("DEBUG INFO: GoToLoginPageCommand");
 
-    // Call into service
+        if (user is null)
+            return;
+
+        await Shell.Current.GoToAsync(nameof(LoginPage), true, new Dictionary<string, object>
+    {
+        {"User", user }
+    });
+    }
+    
     [RelayCommand]
     async Task GetUserAsync()
     {

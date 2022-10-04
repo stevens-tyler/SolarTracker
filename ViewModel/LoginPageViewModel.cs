@@ -1,21 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
+using SolarTracker.Model;
 
 namespace SolarTracker.ViewModel;
 
+[QueryProperty("User","User")]
 public partial class LoginPageViewModel : BaseViewModel
 {
-
-    [ObservableProperty]
-    string email;
-
-    [ObservableProperty]
-    string password;
-
-    [RelayCommand]
-    void Login() 
+    public LoginPageViewModel()
     {
-        Debug.WriteLine("DEBUG INFO: Login");
-    } 
+
+    }
+
+    [ObservableProperty]
+    User user;
 }

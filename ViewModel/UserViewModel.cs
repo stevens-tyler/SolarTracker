@@ -1,72 +1,63 @@
-﻿using SolarTracker.Model;
-using SolarTracker.Services;
-using System.Diagnostics;
-using System.Collections.ObjectModel;
-using CommunityToolkit.Mvvm.Input;
-using SolarTracker.View;
+﻿using SolarTracker.Services;
 
 namespace SolarTracker.ViewModel;
 
 public partial class UserViewModel : BaseViewModel
 {
-
+    public ObservableCollection<User> Users { get; } = new();
     UserService userService;
-
-    public ObservableCollection<User> Users { get; }  = new();
-
-    public UserViewModel(UserService userService) 
+    public UserViewModel(UserService userService)
     {
-        Title = "User Page";
+        Title = "User viewModel";
         this.userService = userService;
-        
     }
+
     [RelayCommand]
-    async Task GoToLoginPageCommand(User user)
+    async Task GoToDetails(User user)
     {
+        this.Title = "yo mama";
+
         Debug.WriteLine("DEBUG INFO: GoToLoginPageCommand");
 
-        if (user is null)
+        if (user == null)
             return;
 
-        await Shell.Current.GoToAsync(nameof(LoginPage), true, new Dictionary<string, object>
-    {
-        {"User", user }
-    });
+        await Shell.Current.GoToAsync("LoginPage", new Dictionary<string, object>
+        {
+            { "User", user }
+        });
+
     }
-    
+
     [RelayCommand]
-    async Task GetUserAsync()
+    async Task GetUsersAsync()
     {
 
-        Debug.WriteLine("DEBUG INFO: GetUserAsync");
-
+        Debug.WriteLine("DEBUG INFO: GetUsersAsync");
         if (IsBusy)
             return;
 
         try
         {
             IsBusy = true;
-            var accounts = await userService.GetUsers();
+            var users = await userService.GetUsers();
 
-            if(Users.Count != 0)
-            {
+            if (Users.Count != 0)
                 Users.Clear();
-            }
 
-            foreach(var account in accounts)// raises event for each account. try batch adding for larger database
-            {
-                Users.Add(account);
-            }
+            foreach (var user in users)
+                Users.Add(user);
+
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            Debug.WriteLine(ex);
-            await Shell.Current.DisplayAlert("ERROR!",$"DEBUG INFO: unable to get users: {ex.Message}","OK");
+            Debug.WriteLine($"Unable to get monkeys: {ex.Message}");
+            await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
         }
         finally
         {
             IsBusy = false;
         }
+
     }
 }
-

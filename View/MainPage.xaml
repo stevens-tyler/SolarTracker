@@ -1,73 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SolarTracker.View.MainPage" 
-             xmlns:model="clr-namespace:SolarTracker.Model"
-             xmlns:viewmodel="clr-namespace:SolarTracker.ViewModel"
-             x:DataType="viewmodel:UserViewModel"
-             Title="{Binding Title}">
+    x:Class="SolarTracker.View.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:SolarTracker.Model"
+    xmlns:viewmodel="clr-namespace:SolarTracker.ViewModel"
+    x:DataType="viewmodel:UserViewModel"
+    Title="Users">
 
 
-    <Grid ColumnDefinitions="*,*"
-          ColumnSpacing="6"
-          RowDefinitions="*,Auto"
-          RowSpacing="0">
-
-        <CollectionView Background="grey"
-                        Grid.ColumnSpan="2"
-                        ItemsSource="{Binding Users}"
-                        SelectionMode="None">
-
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+        <CollectionView
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding Users}"
+            SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:User">
-                    <Grid Padding="10"
-                          Margin="10">
-                        
-                        <Frame HeightRequest="125"
-                               Padding="0"
-                               >
-                            <!-- Add the Gesture Recognizer-->
+                    <Grid Padding="10">
+                        <Frame HeightRequest="125">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer 
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserViewModel}}, Path=GoToLoginPageCommand}"
-                            CommandParameter="{Binding .}"/>
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserViewModel}}, Path=GoToDetailsCommand}"
+                                        CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
-                            <Grid Padding="0"
-                                 ColumnDefinitions="125,*"
-                                  BackgroundColor="LightGray">
-
-                                <Image Aspect="Fill"
-                                       Source="logo.png"
+                            <Grid Padding="0" ColumnDefinitions="125,*">
+                                <Image Aspect="AspectFill" Source="logo.png"
                                        WidthRequest="125"
-                                       HeightRequest="100"/>
-
-                                <VerticalStackLayout Grid.Column="10"
-                                                     Padding="10"
-                                                     VerticalOptions="Center">
-                                    <Label Text="{Binding FirstName}"
-                                           Padding="5"/>
-                                    <Label Text="{Binding Email}"
-                                           Padding="5"/>
+                                       HeightRequest="125"/>
+                                <VerticalStackLayout
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    Padding="10">
+                                    <Label Text="{Binding FirstName}" />
+                                    <Label Text="{Binding Email}" />
                                 </VerticalStackLayout>
-
                             </Grid>
                         </Frame>
                     </Grid>
-                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            
-            
         </CollectionView>
 
-        <Button Text="Get Users"
-                BackgroundColor="LightGray"
-                TextColor="Navy"
-                Command="{Binding GetUserCommand}"
+        <Button Text="Get Users" 
+                Command="{Binding GetUsersCommand}"
                 IsEnabled="{Binding IsNotBusy}"
                 Grid.Row="1"
+                Grid.Column="0"
                 Margin="8"/>
+
+        <Button Text="Get Users" 
+                Command="{Binding GetUsersCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="8"/>
+
 
         <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
@@ -75,7 +66,11 @@
                            VerticalOptions="CenterAndExpand"
                            Grid.RowSpan="2"
                            Grid.ColumnSpan="2"/>
-
     </Grid>
+
+
+
+
+
 
 </ContentPage>

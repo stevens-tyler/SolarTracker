@@ -1,16 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using System.Diagnostics;
-using SolarTracker.Model;
+﻿namespace SolarTracker.ViewModel;
 
-namespace SolarTracker.ViewModel;
-
-[QueryProperty("User","User")]
+[QueryProperty(nameof(User), "Monkey")]
 public partial class LoginPageViewModel : BaseViewModel
 {
     public LoginPageViewModel()
     {
-
     }
 
     [ObservableProperty]

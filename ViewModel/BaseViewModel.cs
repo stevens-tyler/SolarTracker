@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-
-namespace SolarTracker.ViewModel;
+﻿namespace SolarTracker.ViewModel;
 
 public partial class BaseViewModel : ObservableObject
 {

@@ -29,5 +29,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<LoginPage>();
 
         return builder.Build();
+
+
 	}
 }

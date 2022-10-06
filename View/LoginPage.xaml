@@ -8,96 +8,92 @@
     xmlns:viewmodel="clr-namespace:SolarTracker.ViewModel"
     x:DataType="viewmodel:LoginPageViewModel"
     Title="{Binding User.FirstName}">
-    
 
-  
+    <Grid>
 
-    <VerticalStackLayout
-            BackgroundColor="WhiteSmoke"
-            Spacing="25" 
-            Padding="0" 
-            VerticalOptions="Center">
+        <StackLayout>
 
-        <Image
-            Source="logo.png" 
-            HeightRequest="200" 
-            WidthRequest="300" 
-            HorizontalOptions="CenterAndExpand"/>
+            <Image
+               Margin="0,90,0,0" 
+               Source="logo.png"
+               HorizontalOptions="Center"
+               HeightRequest="200"
+               WidthRequest="200"/>
 
+            <StackLayout>
+                <Label
+                    HorizontalOptions="Center"
+                    FontSize="25"
+                    TextColor="Black"
+                    Text="Welcome!"/>
 
-        <VerticalStackLayout Spacing="5">
-            <Label Text="Welcome!" 
-                   FontSize="28" 
-                   TextColor="Black"
-                   HorizontalTextAlignment="Center" />
-            
-            <Label 
-                Text="Login to your account" 
-                FontSize="18" 
-                TextColor="Black" 
-                HorizontalTextAlignment="Center" />
-            
-        </VerticalStackLayout>
-
-        <StackLayout Orientation="Horizontal">
-            <Frame 
-                BackgroundColor="White"
-                BorderColor="LightGray" 
-                ZIndex="1" 
-                HasShadow="True"
-                HeightRequest="56" 
-                WidthRequest="56" 
-                CornerRadius="28">
+                <Label
+                    Padding="10"
+                    HorizontalOptions="Center"
+                    FontSize="15"
+                    TextColor="Black"
+                    Text="Login to your account"/>
                 
-                <Image Source="person.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="CenterAndExpand"/>
-            </Frame>
-            <Frame
-                BackgroundColor="White"
-                BorderColor="LightGray" 
-                HeightRequest="45"
-                Margin="-20,0,0,0" 
-                Padding="0" 
-                HasShadow="True"  
-                HorizontalOptions="FillAndExpand">
+            </StackLayout>
+
+            <StackLayout>
+                
+                <Label
+                    Margin="10,0,0,0"
+                    Padding="5"
+                    TextColor="Black" 
+                    FontSize="16" 
+                    Text="Username"/>
+                
+                <Grid
+                    Padding="5"
+                    Margin="0,5">
+                    
+                    <Frame 
+                        Opacity="0.3" 
+                        BackgroundColor="White" 
+                        CornerRadius="5"/>
+                    
+                    <Entry 
+                        BackgroundColor="Transparent" 
+                        Placeholder="Enter username" 
+                        TextColor="Black" 
+                        Margin="5,0"
+                        PlaceholderColor="Gray" />
+
+                </Grid>
 
                 <Label
-                    TextColor="Black"
-                    Text="Email" 
-                    Margin="20,0,0,0" 
-                    VerticalOptions="Center" />
-            </Frame>
-        </StackLayout>
+                    Margin="10,0,0,0"
+                    
+                    TextColor="Black" 
+                    FontSize="16" 
+                    Text="Password"/>
+                
+                <Grid
+                    Padding="5"
+                    Margin="0,5">
+                    
+                    <Frame 
+                        Opacity="0.3" 
+                        BackgroundColor="White" 
+                        CornerRadius="5"/>
+                    
+                    <Entry
+                        
+                        BackgroundColor="Transparent" 
+                        Placeholder="Enter password" 
+                        TextColor="Black" 
+                        Margin="5,0"
+                        PlaceholderColor="Gray" 
+                        IsPassword="True"/>
 
-        <StackLayout Orientation="Horizontal">
-            <Frame 
-                BackgroundColor="White"
-                BorderColor="LightGray" 
-                ZIndex="1" 
-                HasShadow="True"
-                HeightRequest="56" 
-                WidthRequest="56" 
-                CornerRadius="28">
+                </Grid>
+            </StackLayout>
 
-                <Image Source="lock.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="CenterAndExpand"/>
-            </Frame>
-            <Frame
-                BackgroundColor="White"
-                BorderColor="LightGray" 
-                HeightRequest="45"
-                Margin="-20,0,0,0" 
-                Padding="0" 
-                HasShadow="True"  
-                HorizontalOptions="FillAndExpand">
-
-                <Label
-                    TextColor="Black"
-                    Text="Password" 
-                    Margin="20,0,0,0" 
-                    VerticalOptions="Center" />
-
-            </Frame>
         </StackLayout>
         
-    </VerticalStackLayout>
+    </Grid>
+    
     
 </ContentPage>

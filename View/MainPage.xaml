@@ -43,8 +43,8 @@
                                     VerticalOptions="Center"
                                     Grid.Column="1"
                                     Padding="10">
-                                    <Label TextColor="#3A7FCC" Text="{Binding FirstName}" />
-                                    <Label TextColor="#3A7FCC" Text="{Binding Email}" />
+                                    <Label TextColor="Black" Text="{Binding FirstName}" />
+                                    <Label TextColor="Black" Text="{Binding Email}" />
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>

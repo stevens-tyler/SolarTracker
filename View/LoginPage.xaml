@@ -8,16 +8,14 @@
     x:DataType="viewmodel:LoginPageViewModel"
     Title="{Binding User.FirstName}">
 
-    <Label Text="{Binding User.FirstName}"/>
+  
 
-
-
-    <!--<VerticalStackLayout 
+    <VerticalStackLayout 
             Spacing="25" 
             Padding="30,0" 
             VerticalOptions="Center">
 
-        <Image Source="logo.png" HeightRequest="200" WidthRequest="300" HorizontalOptions="End"/>
+        <Image Source="logo.png" HeightRequest="200" WidthRequest="300" HorizontalOptions="Center"/>
 
         <VerticalStackLayout Spacing="5">
             <Label Text="Welcome!" FontSize="28" TextColor="Gray" HorizontalTextAlignment="Center" />
@@ -46,6 +44,6 @@
             <Label Text="Don't have account?" TextColor="Gray" />
             <Label Text="Sign Up here" TextColor="#50b3f2" />
         </StackLayout>
-    </VerticalStackLayout>-->
+    </VerticalStackLayout>
     
 </ContentPage>

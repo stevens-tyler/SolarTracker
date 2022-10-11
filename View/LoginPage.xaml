@@ -93,14 +93,30 @@
 
                 </Grid>
 
-                <StackLayout
+                <Grid  Margin="20,0,20,0"
+                    Padding="5">
+
+                    <StackLayout>
+                        <Button
+                            Text="Login"
+                            TextColor="Black"
+                            BackgroundColor="#50b3f2">
+                            
+                        </Button>
+                    </StackLayout>
+                    
+                    <StackLayout
                         Padding="20"
                         Orientation="Horizontal" 
                         Spacing="5" 
                         HorizontalOptions="Center">
-                    <Label Text="Don't have account?" TextColor="Gray" />
-                    <Label Text="Sign Up here" TextColor="#50b3f2" />
-                </StackLayout>
+                        <Label Text="Don't have account?" TextColor="Gray" />
+                        <Label Text="Sign Up here" TextColor="#50b3f2" />
+                    </StackLayout>
+
+                </Grid>
+
+                
                 
             </StackLayout>
 

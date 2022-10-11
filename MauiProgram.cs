@@ -22,11 +22,13 @@ public static class MauiProgram
 		// View Models
 		builder.Services.AddSingleton<UserViewModel>();
 		builder.Services.AddTransient<LoginPageViewModel>();
+        builder.Services.AddTransient<DashboardViewModel>();
 
 
-		// Pages
-		builder.Services.AddSingleton<MainPage>();
+        // Pages
+        builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<LoginPage>();
+		builder.Services.AddSingleton<DashboardPage>();
 
         return builder.Build();
 

@@ -13,9 +13,9 @@ public partial class UserViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task GoToDetails(User user)
+    async Task GoToLoginPage(User user)
     {
-        this.Title = "yo mama";
+        this.Title = "";
 
         Debug.WriteLine("DEBUG INFO: GoToLoginPageCommand");
 
@@ -23,6 +23,23 @@ public partial class UserViewModel : BaseViewModel
             return;
 
         await Shell.Current.GoToAsync("LoginPage", new Dictionary<string, object>
+        {
+            { "User", user }
+        });
+
+    }
+
+    [RelayCommand]
+    async Task GoToDashboardPage(User user)
+    {
+        this.Title = "";
+
+        Debug.WriteLine("DEBUG INFO: GoToDashboardPageCommand");
+
+        if (user == null)
+            return;
+
+        await Shell.Current.GoToAsync("DashboardPage", new Dictionary<string, object>
         {
             { "User", user }
         });

@@ -52,16 +52,14 @@
 	  <None Remove="Resources\Raw\accountdata.json" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="View\" />
+	</ItemGroup>
+
 	<!--
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	</ItemGroup>
 	-->
-
-	<ItemGroup>
-	  <MauiXaml Update="View\LoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
 
 </Project>

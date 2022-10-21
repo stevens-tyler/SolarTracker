@@ -1,6 +1,7 @@
 ﻿using SolarTracker.Services;
 using SolarTracker.View;
 using SolarTracker.ViewModel;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 namespace SolarTracker;
 
 public static class MauiProgram
@@ -9,6 +10,7 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
+			.UseSkiaSharp(true)
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{

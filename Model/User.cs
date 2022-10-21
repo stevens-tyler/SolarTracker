@@ -9,7 +9,7 @@ public class User {
     public string System { get; set; }
     public double CurrentPower { get; set; }
     public string CurrentTime { get; set; }
-    public List<double> Day { get; set; }
+    public double[] Day { get; set; }
 
 }
 
